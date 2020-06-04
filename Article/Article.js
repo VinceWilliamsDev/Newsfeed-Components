@@ -85,6 +85,13 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'New Title',
+    date: 'July 20th, 1986',
+    firstParagraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut lobortis sem. In hac habitasse platea dictumst. Nulla suscipit dignissim.', 
+    secondParagraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut lobortis sem. In hac habitasse platea dictumst. Nulla suscipit dignissim.', 
+    thirdParagraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut lobortis sem. In hac habitasse platea dictumst. Nulla suscipit dignissim.'
   }
 ];
 
@@ -125,5 +132,29 @@ function articleMaker(articleObj) {
   date.className = "date"
   button.className = "expandButton"
 
-  .appendChild()
+  article.appendChild(title)
+  article.appendChild(title)
+  article.appendChild(date)
+  article.appendChild(firstPara)
+  article.appendChild(secondPara)
+  article.appendChild(thirdPara)
+  article.appendChild(button)
+
+  title.textContent = articleObj.title
+  date.textContent = articleObj.date
+  firstPara.textContent = articleObj.firstParagraph
+  secondPara.textContent = articleObj.secondParagraph
+  thirdPara.textContent = articleObj.thirdParagraph
+  button.textContent = "Click to Expand"
+
+  button.addEventListener("click", event => {
+    article.classList.toggle("article-open")
+  })
+
+  return article
 }
+
+data.forEach(entry => {
+  const tile = articleMaker(entry)
+  document.querySelector(".articles").appendChild(tile)
+})
